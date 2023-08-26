@@ -3,7 +3,7 @@ db.createCollection("midTermGoals", {
         $jsonSchema: {
             bsonType: "object",
             title: "Mid Term Goal Object Validation",
-            required: [ "title", "lastUpdate", "isComplete"],
+            required: [ "title", "parentId", "lastUpdate", "isComplete"],
             properties: {
             title: {
                bsonType: "string",

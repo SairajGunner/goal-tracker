@@ -3,7 +3,7 @@ db.createCollection("shortTermGoals", {
         $jsonSchema: {
             bsonType: "object",
             title: "Short Term Goal Object Validation",
-            required: [ "title", "lastUpdate", "isComplete"],
+            required: [ "title", "parentId", "lastUpdate", "isComplete"],
             properties: {
             title: {
                bsonType: "string",
