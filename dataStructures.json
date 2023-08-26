@@ -1,0 +1,26 @@
+{
+  "structures": [
+    {
+      "goal": {
+        "title": "string",
+        "description": "string",
+        "lastUpdate": "string",
+        "isComplete": "boolean",
+        "tasks": [
+          {
+            "title": "string",
+            "description": "string",
+            "isComplete": "boolean",
+            "dateCompleted": "string"
+          },
+          {
+            "title": "string",
+            "description": "string",
+            "isComplete": "boolean",
+            "dateCompleted": "string"
+          }
+        ]
+      }
+    }
+  ]
+}
