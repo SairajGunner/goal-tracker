@@ -1,0 +1,25 @@
+use goals
+
+db.createCollection("shortTermGoals", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            title: "Short Term Goal Object Validation",
+            required: [ "title", "parentId", "lastUpdate", "isComplete"],
+            properties: {
+            title: {
+               bsonType: "string",
+               description: "'title' must be a string and is required."
+            },
+            lastUpdate: {
+               bsonType: "date",
+               description: "Incorrect format for date. Please use ISO format."
+            },
+            isComplete: {
+               bsonType: "bool",
+               description: "'isComplete' should be a boolean."
+            }
+         }
+        }
+    }
+})

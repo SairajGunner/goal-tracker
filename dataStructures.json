@@ -1,0 +1,37 @@
+{
+  "structures": [
+    {
+      "goal": {
+        "title": "string",
+        "parentId": "string",
+        "description": "string",
+        "lastUpdate": "string",
+        "isComplete": "boolean",
+        "tasks": [
+          {
+            "title": "string",
+            "parentId": "string",
+            "description": "string",
+            "isComplete": "boolean",
+            "dateCompleted": "string"
+          },
+          {
+            "title": "string",
+            "parentId": "string",
+            "description": "string",
+            "isComplete": "boolean",
+            "dateCompleted": "string"
+          }
+        ]
+      }
+    },
+    {
+      "task": {
+        "title": "string",
+        "description": "string",
+        "isComplete": "boolean",
+        "dateCompleted": "string"
+      }
+    }
+  ]
+}
