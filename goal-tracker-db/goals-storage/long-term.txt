@@ -1,3 +1,5 @@
+use goals
+
 db.createCollection("longTermGoals", {
     validator: {
         $jsonSchema: {
@@ -14,7 +16,7 @@ db.createCollection("longTermGoals", {
                description: "Incorrect format for date. Please use ISO format."
             },
             isComplete: {
-               bsonType: boolean,
+               bsonType: "bool",
                description: "'isComplete' should be a boolean."
             }
          }
