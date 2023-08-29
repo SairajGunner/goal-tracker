@@ -7,7 +7,7 @@ import {
   deleteGoalById
 } from "../controllers/longTermGoalsController";
 
-const routePrefix = "/long-term-goal";
+const routePrefix = "/long-term-goals";
 
 export default (router: express.Router) => {
   router.get(`${routePrefix}/all`, getAllGoals);
