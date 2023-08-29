@@ -1,7 +1,7 @@
 import express from "express";
 import * as http from "http";
 import { error } from "console";
-import * as cors from "cors";
+import cors from "cors";
 import mongoose from "mongoose";
 import router from "./router/indexRouter";
 import dbSettings from "../dbSettings.json";
@@ -21,7 +21,7 @@ server.listen(port, () => {
 const MONGO_DB_URL = dbSettings.mongo_db_url;
 
 mongoose.Promise = Promise;
-mongoose.connect(MONGO_DB_URL);
+mongoose.connect(MONGO_DB_URL, { dbName: "goals" });
 mongoose.connection.on("error", () => {
   console.error(error);
 });

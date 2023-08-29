@@ -1,16 +1,19 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "module": "commonjs",
+    "module": "NodeNext",
+    "moduleResolution": "node",
+    "baseUrl": "src",
     "outDir": "dist",
     "sourceMap": true,
     "resolveJsonModule": true,
+    "noImplicitAny": true,
     "esModuleInterop": true
   },
   "files": [
     "./node_modules/@types/mocha/index.d.ts",
     "./node_modules/@types/node/index.d.ts"
   ],
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules"]
 }
