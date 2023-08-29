@@ -29,7 +29,7 @@ export const longTermGoalsModel = mongoose.model(
 
 export const getAllLongTermGoals = async () => {
   try {
-    longTermGoalsModel.find();
+    return await longTermGoalsModel.find();
   } catch (error) {
     throw error;
   }
@@ -37,7 +37,7 @@ export const getAllLongTermGoals = async () => {
 
 export const getLongTermGoalById = async (id: String) => {
   try {
-    longTermGoalsModel.findById(id);
+    return await longTermGoalsModel.findById(id);
   } catch (error) {
     throw error;
   }
@@ -45,7 +45,9 @@ export const getLongTermGoalById = async (id: String) => {
 
 export const createLongTermGoal = async (goal: Goal) => {
   try {
-    longTermGoalsModel.create(goal).then((goal) => goal.toObject());
+    return await longTermGoalsModel
+      .create(goal)
+      .then((goal) => goal.toObject());
   } catch (error) {
     throw error;
   }
@@ -53,7 +55,7 @@ export const createLongTermGoal = async (goal: Goal) => {
 
 export const updateLongTermGoalById = async (id: String, goal: Goal) => {
   try {
-    longTermGoalsModel.findByIdAndUpdate(id, goal);
+    return await longTermGoalsModel.findByIdAndUpdate(id, goal);
   } catch (error) {
     throw error;
   }
@@ -61,7 +63,7 @@ export const updateLongTermGoalById = async (id: String, goal: Goal) => {
 
 export const deleteLongTermGoalById = async (id: String) => {
   try {
-    longTermGoalsModel.findByIdAndDelete(id);
+    return await longTermGoalsModel.findByIdAndDelete(id);
   } catch (error) {
     throw error;
   }

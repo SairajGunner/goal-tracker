@@ -23,3 +23,23 @@ db.createCollection("longTermGoals", {
         }
     }
 })
+
+Long Term Goal - Example
+{
+    "goal": {
+        "title": "Long Term Goal 2",
+        "parentId": "00000000-0000-0000-0000-000000000010",
+        "description": "Some description.",
+        "lastUpdate": "2023-08-29",
+        "isComplete": false,
+        "tasks": [
+            {
+                "title": "Long Term Goal Task 1",
+                "parentId": "00000000-0000-0000-0000-000000000010",
+                "description": "Some Task description.",
+                "dateCompleted": null,
+                "isComplete": false
+            }
+        ]
+    }
+}
