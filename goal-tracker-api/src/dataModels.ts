@@ -7,10 +7,10 @@ export class Task {
 }
 
 export class Goal {
-    title: String;
-    parentId: String;
-    description: String;
-    lastUpdate: String;
-    isComplete: Boolean;
-    tasks: Array<Task>;
+  title: String;
+  parentId: String;
+  description: String;
+  lastUpdate: String;
+  isComplete: Boolean;
+  tasks: Array<Task>;
 }
