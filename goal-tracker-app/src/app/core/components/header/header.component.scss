@@ -1,0 +1,35 @@
+@import "../../../../styles.scss";
+
+#header-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  border-bottom: 1px solid $primary-blue;
+  padding: 5px;
+}
+
+.header-navigation {
+  border: 1px solid $primary-blue;
+  border-radius: 5px;
+  background-color: $primary-white;
+  color: $primary-blue;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 5px;
+  min-width: 225px;
+  cursor: pointer;
+}
+
+.header-navigation:hover {
+  border-radius: 5px;
+  background-color: $primary-blue;
+  color: $primary-white;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 5px;
+  min-width: 225px;
+  cursor: pointer;
+}

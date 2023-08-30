@@ -1,0 +1,13 @@
+@import "../styles.scss";
+
+#app-content-container {
+  display: grid;
+  grid-template-columns: 33.33% 33.33% 33.33%;
+  height: 100%;
+}
+
+.app-content-goals-container {
+  background-image: linear-gradient(to bottom, white, lightskyblue);
+  border: 1px solid #4472c4;
+  height: 100%;
+}
