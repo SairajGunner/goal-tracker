@@ -1,1 +1,33 @@
-/* You can add global styles to this file, and also import other style files */
+// Global Colors
+$primary-blue: #4472c4;
+$primary-white: white;
+
+html {
+  min-height: 100vh;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #4472c4;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
