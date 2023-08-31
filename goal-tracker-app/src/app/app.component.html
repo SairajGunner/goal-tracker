@@ -1,6 +1,15 @@
 <app-header></app-header>
 <main id="app-content-container">
-  <div class="app-content-goals-container"></div>
-  <div class="app-content-goals-container"></div>
-  <div class="app-content-goals-container"></div>
+  <div id="short-term-goals" class="app-content-goals-container">
+    <h2 class="goals-container-title">Short Term Goals</h2>
+    <p *ngFor="let goal of shortTermGoals">{{ goal.title }}</p>
+  </div>
+  <div id="mid-term-goals" class="app-content-goals-container">
+    <h2 class="goals-container-title">Mid Term Goals</h2>
+    <p *ngFor="let goal of midTermGoals">{{ goal.title }}</p>
+  </div>
+  <div id="long-term-goals" class="app-content-goals-container">
+    <h2 class="goals-container-title">Long Term Goals</h2>
+    <p *ngFor="let goal of longTermGoals">{{ goal.title }}</p>
+  </div>
 </main>
