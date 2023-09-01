@@ -1,3 +1,24 @@
 <div class="goal-card-container">
-
+  <div class="goal-card-content">
+    <div class="goal-card-title-container">
+      <h3>{{ goal.title }}</h3>
+    </div>
+    <div class="goal-card-content-container">
+      <p>{{ goal.description }}</p>
+      <p>Last Update: {{ lastUpdatedDate | date : "yyyy-MM-dd" }}</p>
+    </div>
+    <div *ngFor="let task of goal.tasks" class="goal-card-tasks-container">
+      <div
+        (click)="task.isComplete = !task.isComplete"
+        class="goal-card-task-completion-container"
+      >
+        <fa-icon
+          *ngIf="task.isComplete"
+          class="faCheck-style"
+          [icon]="faCheck"
+        ></fa-icon>
+      </div>
+      <p class="goal-card-task-text">{{ task.title }}</p>
+    </div>
+  </div>
 </div>
