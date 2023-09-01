@@ -1,6 +1,6 @@
 export class Task {
   title: String;
-  parentId: String;
+  parentId?: String;
   description?: String;
   isComplete: Boolean;
   dateCompleted: String;

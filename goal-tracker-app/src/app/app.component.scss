@@ -11,7 +11,6 @@
   flex-direction: column;
   align-items: center;
   background-image: linear-gradient(to bottom, white, lightskyblue);
-  border: 1px solid #4472c4;
   height: 100%;
 }
 
@@ -22,4 +21,14 @@
 
 app-goal-card {
   width: 80%;
+}
+
+.app-content-goals-container {
+  overflow-y: scroll;
+  height: 100%;
+  max-height: 100vh;
+}
+
+.goal-card-edit {
+  margin-bottom: 5px;
 }

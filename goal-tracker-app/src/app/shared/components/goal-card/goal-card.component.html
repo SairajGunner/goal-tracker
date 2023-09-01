@@ -1,12 +1,44 @@
 <div class="goal-card-container">
   <div class="goal-card-content">
     <div class="goal-card-title-container">
-      <h3>{{ goal.title }}</h3>
+      <h3 *ngIf="!editMode">{{ goal.title }}</h3>
+      <input
+        *ngIf="editMode"
+        class="goal-card-title-text"
+        type="text"
+        placeholder="TITLE"
+        [(ngModel)]="goal.title"
+      />
     </div>
     <div class="goal-card-content-container">
-      <p>{{ goal.description }}</p>
-      <p>Last Update: {{ lastUpdatedDate | date : "yyyy-MM-dd" }}</p>
+      <p *ngIf="!editMode">{{ goal.description }}</p>
+      <textarea
+        *ngIf="editMode"
+        class="goal-card-content-text"
+        rows="4"
+        placeholder="Add some description"
+        [(ngModel)]="goal.description"
+      ></textarea>
+      <p *ngIf="!editMode">
+        Last Update: {{ lastUpdatedDate | date : "yyyy-MM-dd" }}
+      </p>
     </div>
+    <h4 *ngIf="!editMode">Parent: {{ showParentGoalTitle() }}</h4>
+    <div
+      *ngIf="editMode && parentGoals.length > 0"
+      class="goal-card-parent-details-container"
+    >
+      <h4>Parent:</h4>
+      <select
+        class="goal-card-parent-details-select"
+        [(ngModel)]="goal.parentId"
+      >
+        <option *ngFor="let goal of parentGoals" value="goal._id">
+          {{ goal.title }}
+        </option>
+      </select>
+    </div>
+    <h4>Tasks:</h4>
     <div *ngFor="let task of goal.tasks" class="goal-card-tasks-container">
       <div
         (click)="task.isComplete = !task.isComplete"
@@ -20,5 +52,22 @@
       </div>
       <p class="goal-card-task-text">{{ task.title }}</p>
     </div>
+    <div class="goal-card-tasks-container goal-card-additional-task-container">
+      <div class="goal-card-additional-task-text-container">
+        <input
+          class="goal-card-additional-task-text"
+          type="text"
+          [(ngModel)]="additionalTask"
+        />
+      </div>
+      <div class="goal-card-additional-task-submit-button">
+        <fa-icon
+          class="faArrowRight-style"
+          (click)="addTask()"
+          [icon]="faArrowRight"
+        ></fa-icon>
+      </div>
+    </div>
+    <div *ngIf="editMode" class="add-goal-container">LET'S DO THIS!</div>
   </div>
 </div>

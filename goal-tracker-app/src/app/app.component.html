@@ -6,12 +6,22 @@
       *ngFor="let goal of shortTermGoals"
       [goal]="goal"
     ></app-goal-card>
+    <app-goal-card
+      class="goal-card-edit"
+      [parentGoals]="midTermGoals"
+      [editMode]="true"
+    ></app-goal-card>
   </div>
   <div id="mid-term-goals" class="app-content-goals-container">
     <h2 class="goals-container-title">Mid Term Goals</h2>
     <app-goal-card
       *ngFor="let goal of midTermGoals"
       [goal]="goal"
+    ></app-goal-card>
+    <app-goal-card
+      class="goal-card-edit"
+      [parentGoals]="longTermGoals"
+      [editMode]="true"
     ></app-goal-card>
   </div>
   <div id="long-term-goals" class="app-content-goals-container">
@@ -20,5 +30,6 @@
       *ngFor="let goal of longTermGoals"
       [goal]="goal"
     ></app-goal-card>
+    <app-goal-card class="goal-card-edit" [editMode]="true"></app-goal-card>
   </div>
 </main>

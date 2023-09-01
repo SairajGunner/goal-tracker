@@ -7,13 +7,34 @@
   border: 1px solid $primary-blue;
   border-radius: 5px;
   margin: 5px 0;
-  padding-bottom: 10px;
+  padding-bottom: 5px;
   background-color: $primary-white;
   color: $primary-blue;
 }
 
+.goal-card-title-text {
+  margin: 0.5em 5px 0.5em 0;
+  width: 98%;
+  font-size: 1.17em;
+  color: $primary-blue;
+  font-weight: bold;
+}
+
+h3,
+p {
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
+}
+
 .goal-card-content {
   margin: 0 10px;
+}
+
+.goal-card-content-text {
+  width: 98%;
+  font-size: 1.0em;
+  color: $primary-blue;
+  border-radius: 2px;
 }
 
 .goal-card-title-container {
@@ -50,4 +71,75 @@
 .faCheck-style {
   color: $primary-blue;
   font-weight: bold;
+}
+
+h4 {
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
+}
+
+.goal-card-parent-details-container {
+  width: 100%;
+}
+
+.goal-card-parent-details-select {
+  width: 100%;
+  font-size: 1.0em;
+  min-height: 30px;
+  color: $primary-blue;
+}
+
+.goal-card-additional-task-container {
+  justify-content: space-between;
+  min-height: 30px;
+}
+
+.goal-card-additional-task-text-container {
+  margin-left: 5px;
+  width: 85%;
+}
+
+.goal-card-additional-task-text {
+  min-width: 100%;
+  font-size: 1em;
+  color: $primary-blue;
+}
+
+.goal-card-additional-task-submit-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5px;
+  min-width: 22.5px;
+  min-height: 22.5px;
+  border-radius: 2px;
+  background-color: $primary-white;
+  color: $primary-blue;
+  cursor: pointer;
+}
+
+.goal-card-additional-task-submit-button:hover {
+  background-color: $primary-blue;
+  color: $primary-white;
+  border: 1px solid $primary-white;
+}
+
+.add-goal-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  min-height: 30px;
+  border: 1px solid $primary-blue;
+  border-radius: 2px;
+  background-color: $primary-white;
+  color: $primary-blue;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.add-goal-container:hover {
+  background-color: $primary-blue;
+  color: $primary-white;
 }
