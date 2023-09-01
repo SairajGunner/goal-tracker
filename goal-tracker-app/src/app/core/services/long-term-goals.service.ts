@@ -18,11 +18,11 @@ export class LongTermGoalsService {
     return <Observable<Array<Goal>>>this.http.get(`${this.endpoint}/all`);
   };
 
-  getMidTermGoalById = (id: String): Observable<Goal> => {
+  getLongTermGoalById = (id: String): Observable<Goal> => {
     return <Observable<Goal>>this.http.get(`${this.endpoint}/${id}`);
   };
 
-  createMidTermGoal = (goal: Goal): Observable<Goal> => {
+  createLongTermGoal = (goal: Goal): Observable<Goal> => {
     const options = {
       headers: {
         'content-type': 'application/json',
@@ -33,7 +33,7 @@ export class LongTermGoalsService {
     );
   };
 
-  updateMidTermGoalById = (goal: Goal): Observable<Goal> => {
+  updateLongTermGoalById = (goal: Goal): Observable<Goal> => {
     const options = {
       headers: {
         'content-type': 'application/json',
@@ -48,7 +48,7 @@ export class LongTermGoalsService {
     );
   };
 
-  deleteMidTermGoal = (id: String): Observable<Goal> => {
+  deleteLongTermGoal = (id: String): Observable<Goal> => {
     return <Observable<Goal>>this.http.delete(`${this.endpoint}/delete/${id}`);
   };
 }

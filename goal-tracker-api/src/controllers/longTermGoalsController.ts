@@ -38,7 +38,7 @@ export const createGoal = async (
   res: express.Response
 ) => {
   try {
-    const goalResponse = await createLongTermGoal(req.body.goal);
+    const goalResponse = await createLongTermGoal(req.body);
     return res.status(200).json(goalResponse);
   } catch (error) {
     console.error(error);
@@ -51,10 +51,7 @@ export const updateGoalById = async (
   res: express.Response
 ) => {
   try {
-    const goalResponse = await updateLongTermGoalById(
-      req.params.id,
-      req.body.goal
-    );
+    const goalResponse = await updateLongTermGoalById(req.params.id, req.body);
     return res.status(200).json(goalResponse);
   } catch (error) {
     console.error(error);
