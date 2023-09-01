@@ -33,20 +33,50 @@ export class AppComponent implements OnInit {
   }
 
   getAllShortTermGoals = () => {
-    this.shortTermGoalsService.getAllShortTermGoals().subscribe((response) => {
-      this.shortTermGoals = response;
-    });
+    this.shortTermGoalsService
+      .getAllShortTermGoals()
+      .subscribe((response: Array<Goal>) => {
+        this.shortTermGoals = response;
+      });
   };
 
   getAllMidTermGoals = () => {
-    this.midTermGoalsService.getAllMidTermGoals().subscribe((response) => {
-      this.midTermGoals = response;
-    });
+    this.midTermGoalsService
+      .getAllMidTermGoals()
+      .subscribe((response: Array<Goal>) => {
+        this.midTermGoals = response;
+      });
   };
 
   getAllLongTermGoals = () => {
-    this.longTermGoalsService.getAllLongTermGoals().subscribe((response) => {
-      this.longTermGoals = response;
-    });
+    this.longTermGoalsService
+      .getAllLongTermGoals()
+      .subscribe((response: Array<Goal>) => {
+        this.longTermGoals = response;
+      });
   };
+
+  addShortTermGoal(goal: Goal) {
+    this.shortTermGoalsService
+      .createShortTermGoal(goal)
+      .subscribe((response: Goal) => {
+        this.shortTermGoals.push(response);
+      });
+  }
+
+  addMidTermGoal(goal: Goal) {
+    this.midTermGoalsService
+      .createMidTermGoal(goal)
+      .subscribe((response: Goal) => {
+        this.midTermGoals.push(response);
+      });
+  }
+
+  addLongTermGoal(goal: Goal) {
+    this.longTermGoalsService
+      .createLongTermGoal(goal)
+      .subscribe((response: Goal) => {
+        this.longTermGoals.push(response);
+      });
+  }
 }

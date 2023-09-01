@@ -23,7 +23,9 @@
         Last Update: {{ lastUpdatedDate | date : "yyyy-MM-dd" }}
       </p>
     </div>
-    <h4 *ngIf="!editMode">Parent: {{ showParentGoalTitle() }}</h4>
+    <h4 *ngIf="!editMode && parentGoals.length > 0">
+      Parent: {{ showParentGoalTitle() }}
+    </h4>
     <div
       *ngIf="editMode && parentGoals.length > 0"
       class="goal-card-parent-details-container"
@@ -33,7 +35,7 @@
         class="goal-card-parent-details-select"
         [(ngModel)]="goal.parentId"
       >
-        <option *ngFor="let goal of parentGoals" value="goal._id">
+        <option *ngFor="let goal of parentGoals" value="{{ goal._id }}">
           {{ goal.title }}
         </option>
       </select>
@@ -50,7 +52,14 @@
           [icon]="faCheck"
         ></fa-icon>
       </div>
-      <p class="goal-card-task-text">{{ task.title }}</p>
+      <p
+        [ngClass]="{
+          'goal-card-task-text-strikethrough': task.isComplete,
+          'goal-card-task-text': !task.isComplete
+        }"
+      >
+        {{ task.title }}
+      </p>
     </div>
     <div class="goal-card-tasks-container goal-card-additional-task-container">
       <div class="goal-card-additional-task-text-container">
@@ -68,6 +77,8 @@
         ></fa-icon>
       </div>
     </div>
-    <div *ngIf="editMode" class="add-goal-container">LET'S DO THIS!</div>
+    <div *ngIf="editMode" (click)="postNewGoal()" class="add-goal-container">
+      LET'S DO THIS!
+    </div>
   </div>
 </div>

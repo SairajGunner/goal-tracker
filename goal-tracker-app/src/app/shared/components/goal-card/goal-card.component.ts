@@ -1,4 +1,11 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import { Goal } from 'src/app/core/models/goal';
 import { faCheck, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { Task } from 'src/app/core/models/task';
@@ -12,6 +19,7 @@ export class GoalCardComponent implements OnChanges {
   @Input() goal: Goal = new Goal('', '', '', '', false, []);
   @Input() editMode: Boolean = false;
   @Input() parentGoals: Array<Goal> = [];
+  @Output() addGoal: EventEmitter<Goal> = new EventEmitter<Goal>();
   lastUpdatedDate: Date = new Date();
   additionalTask: string = '';
   faCheck = faCheck;
@@ -35,7 +43,7 @@ export class GoalCardComponent implements OnChanges {
       this.goal.parentId,
       '',
       false,
-      ''
+      new Date().toLocaleDateString('en-CA')
     );
     this.goal.tasks.push(task);
     this.additionalTask = '';
@@ -43,7 +51,21 @@ export class GoalCardComponent implements OnChanges {
 
   showParentGoalTitle(): string | undefined {
     return this.parentGoals
-      ?.find((goal) => goal.parentId === this.goal._id)
+      ?.find((goal) => goal._id === this.goal.parentId)
       ?.title.toString();
+  }
+
+  postNewGoal(): void {
+    if (this.goal.title) {
+      if (this.parentGoals.length > 0 && this.goal.parentId) {
+        this.goal.lastUpdate = new Date().toLocaleDateString('en-CA');
+        this.addGoal.emit(this.goal);
+        this.goal = new Goal('', '', '', '', false, []);
+      } else {
+        this.goal.lastUpdate = new Date().toLocaleDateString('en-CA');
+        this.addGoal.emit(this.goal);
+        this.goal = new Goal('', '', '', '', false, []);
+      }
+    }
   }
 }

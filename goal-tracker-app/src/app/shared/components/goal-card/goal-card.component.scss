@@ -68,6 +68,11 @@ p {
   margin: 5px;
 }
 
+.goal-card-task-text-strikethrough {
+  margin: 5px;
+  text-decoration: line-through;
+}
+
 .faCheck-style {
   color: $primary-blue;
   font-weight: bold;

@@ -38,7 +38,7 @@ export const createGoal = async (
   res: express.Response
 ) => {
   try {
-    const goalResponse = await createMidTermGoal(req.body.goal);
+    const goalResponse = await createMidTermGoal(req.body);
     return res.status(200).json(goalResponse);
   } catch (error) {
     console.error(error);
@@ -51,10 +51,7 @@ export const updateGoalById = async (
   res: express.Response
 ) => {
   try {
-    const goalResponse = await updateMidTermGoalById(
-      req.params.id,
-      req.body.goal
-    );
+    const goalResponse = await updateMidTermGoalById(req.params.id, req.body);
     return res.status(200).json(goalResponse);
   } catch (error) {
     console.error(error);
