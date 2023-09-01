@@ -1,6 +1,7 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Goal } from 'src/app/core/models/goal';
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { Task } from 'src/app/core/models/task';
 
 @Component({
   selector: 'app-goal-card',
@@ -9,8 +10,12 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons';
 })
 export class GoalCardComponent implements OnChanges {
   @Input() goal: Goal = new Goal('', '', '', '', false, []);
+  @Input() editMode: Boolean = false;
+  @Input() parentGoals: Array<Goal> = [];
   lastUpdatedDate: Date = new Date();
+  additionalTask: string = '';
   faCheck = faCheck;
+  faArrowRight = faArrowRight;
 
   ngOnChanges(changes: SimpleChanges) {
     for (let change in changes) {
@@ -22,5 +27,23 @@ export class GoalCardComponent implements OnChanges {
 
   toggleComplete() {
     this.goal.isComplete = !this.goal.isComplete;
+  }
+
+  addTask() {
+    const task: Task = new Task(
+      this.additionalTask,
+      this.goal.parentId,
+      '',
+      false,
+      ''
+    );
+    this.goal.tasks.push(task);
+    this.additionalTask = '';
+  }
+
+  showParentGoalTitle(): string | undefined {
+    return this.parentGoals
+      ?.find((goal) => goal.parentId === this.goal._id)
+      ?.title.toString();
   }
 }
