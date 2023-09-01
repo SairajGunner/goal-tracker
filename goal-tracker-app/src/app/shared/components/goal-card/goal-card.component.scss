@@ -1,0 +1,53 @@
+@import "../../../../styles.scss";
+
+.goal-card-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 1px solid $primary-blue;
+  border-radius: 5px;
+  margin: 5px 0;
+  padding-bottom: 10px;
+  background-color: $primary-white;
+  color: $primary-blue;
+}
+
+.goal-card-content {
+  margin: 0 10px;
+}
+
+.goal-card-title-container {
+  text-transform: uppercase;
+}
+
+.goal-card-tasks-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 5px;
+  background-color: $primary-blue;
+  color: $primary-white;
+  margin-bottom: 5px;
+}
+
+.goal-card-task-completion-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: $primary-white;
+  width: 25px;
+  height: 25px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.goal-card-task-text {
+  margin: 5px;
+}
+
+.faCheck-style {
+  color: $primary-blue;
+  font-weight: bold;
+}

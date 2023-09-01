@@ -35,21 +35,18 @@ export class AppComponent implements OnInit {
   getAllShortTermGoals = () => {
     this.shortTermGoalsService.getAllShortTermGoals().subscribe((response) => {
       this.shortTermGoals = response;
-      console.log(this.shortTermGoals);
     });
   };
 
   getAllMidTermGoals = () => {
     this.midTermGoalsService.getAllMidTermGoals().subscribe((response) => {
       this.midTermGoals = response;
-      console.log(this.midTermGoals);
     });
   };
 
   getAllLongTermGoals = () => {
     this.longTermGoalsService.getAllLongTermGoals().subscribe((response) => {
       this.longTermGoals = response;
-      console.log(this.longTermGoals);
     });
   };
 }
