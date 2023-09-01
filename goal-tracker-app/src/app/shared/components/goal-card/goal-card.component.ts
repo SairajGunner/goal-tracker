@@ -19,6 +19,7 @@ export class GoalCardComponent implements OnChanges {
   @Input() goal: Goal = new Goal('', '', '', '', false, []);
   @Input() editMode: Boolean = false;
   @Input() parentGoals: Array<Goal> = [];
+  @Output() updateGoal: EventEmitter<Goal> = new EventEmitter<Goal>();
   @Output() addGoal: EventEmitter<Goal> = new EventEmitter<Goal>();
   lastUpdatedDate: Date = new Date();
   additionalTask: string = '';
@@ -33,8 +34,24 @@ export class GoalCardComponent implements OnChanges {
     }
   }
 
-  toggleComplete() {
-    this.goal.isComplete = !this.goal.isComplete;
+  toggleComplete(taskBeingUpdated: Task) {
+    let updatedTask = this.goal.tasks?.find(
+      (task) => task === taskBeingUpdated
+    );
+    if (updatedTask) {
+      updatedTask.isComplete = !updatedTask.isComplete;
+      if (!this.editMode) {
+        if (updatedTask.isComplete) {
+          this.goal.lastUpdate = updatedTask.dateCompleted =
+            new Date().toLocaleDateString('en-CA');
+          this.updateGoal.emit(this.goal);
+        } else {
+          this.goal.lastUpdate = new Date().toLocaleDateString('en-CA');
+          updatedTask.dateCompleted = '';
+          this.updateGoal.emit(this.goal);
+        }
+      }
+    }
   }
 
   addTask() {
@@ -46,6 +63,7 @@ export class GoalCardComponent implements OnChanges {
       new Date().toLocaleDateString('en-CA')
     );
     this.goal.tasks.push(task);
+    this.updateGoal.emit(this.goal);
     this.additionalTask = '';
   }
 

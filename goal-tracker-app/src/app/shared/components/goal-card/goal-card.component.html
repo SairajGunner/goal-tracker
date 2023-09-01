@@ -43,7 +43,7 @@
     <h4>Tasks:</h4>
     <div *ngFor="let task of goal.tasks" class="goal-card-tasks-container">
       <div
-        (click)="task.isComplete = !task.isComplete"
+        (click)="toggleComplete(task)"
         class="goal-card-task-completion-container"
       >
         <fa-icon

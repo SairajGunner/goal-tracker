@@ -56,6 +56,18 @@ export class AppComponent implements OnInit {
       });
   };
 
+  updateShortTermGoal(goal: Goal) {
+    this.shortTermGoalsService.updateShortTermGoalById(goal).subscribe();
+  }
+
+  updateMidTermGoal(goal: Goal) {
+    this.midTermGoalsService.updateMidTermGoalById(goal).subscribe();
+  }
+
+  updateLongTermGoal(goal: Goal) {
+    this.longTermGoalsService.updateLongTermGoalById(goal).subscribe();
+  }
+
   addShortTermGoal(goal: Goal) {
     this.shortTermGoalsService
       .createShortTermGoal(goal)

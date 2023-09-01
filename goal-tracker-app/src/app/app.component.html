@@ -5,6 +5,7 @@
     <app-goal-card
       *ngFor="let goal of shortTermGoals"
       [parentGoals]="midTermGoals"
+      (updateGoal)="updateShortTermGoal($event)"
       [goal]="goal"
     ></app-goal-card>
     <app-goal-card
@@ -19,6 +20,7 @@
     <app-goal-card
       *ngFor="let goal of midTermGoals"
       [parentGoals]="longTermGoals"
+      (updateGoal)="updateMidTermGoal($event)"
       [goal]="goal"
     ></app-goal-card>
     <app-goal-card
@@ -32,6 +34,7 @@
     <h2 class="goals-container-title">Long Term Goals</h2>
     <app-goal-card
       *ngFor="let goal of longTermGoals"
+      (updateGoal)="updateLongTermGoal($event)"
       [goal]="goal"
     ></app-goal-card>
     <app-goal-card
