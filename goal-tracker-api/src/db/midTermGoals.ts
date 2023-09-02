@@ -3,9 +3,11 @@ import { Goal } from "../dataModels";
 
 const midTermGoalsSchema = new mongoose.Schema(
   {
+    priority: { type: Number, required: true },
     title: { type: String, required: true },
     parentId: { type: String, required: true },
     description: { type: String, required: false },
+    pictureSource: { type: String, required: false },
     lastUpdate: { type: Date, required: true },
     isComplete: { type: Boolean, required: true },
     tasks: {

@@ -1,10 +1,12 @@
 import {
   Component,
+  ElementRef,
   EventEmitter,
   Input,
   OnChanges,
   Output,
   SimpleChanges,
+  ViewChild,
 } from '@angular/core';
 import { Goal } from 'src/app/core/models/goal';
 import { faCheck, faArrowRight } from '@fortawesome/free-solid-svg-icons';
@@ -16,7 +18,8 @@ import { Task } from 'src/app/core/models/task';
   styleUrls: ['./goal-card.component.scss'],
 })
 export class GoalCardComponent implements OnChanges {
-  @Input() goal: Goal = new Goal('', '', '', '', false, []);
+  // @ViewChild('fileInput', { static: false }) fileInput?: ElementRef;
+  @Input() goal: Goal = new Goal(undefined, '', '', '', '', '', false, []);
   @Input() editMode: Boolean = false;
   @Input() parentGoals: Array<Goal> = [];
   @Output() updateGoal: EventEmitter<Goal> = new EventEmitter<Goal>();
@@ -29,7 +32,7 @@ export class GoalCardComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     for (let change in changes) {
       if (change == 'goal') {
-        this.lastUpdatedDate = new Date(this.goal.lastUpdate.toString());
+        this.lastUpdatedDate = new Date(this.goal.lastUpdate);
       }
     }
   }
@@ -68,9 +71,8 @@ export class GoalCardComponent implements OnChanges {
   }
 
   showParentGoalTitle(): string | undefined {
-    return this.parentGoals
-      ?.find((goal) => goal._id === this.goal.parentId)
-      ?.title.toString();
+    return this.parentGoals?.find((goal) => goal._id === this.goal.parentId)
+      ?.title;
   }
 
   postNewGoal(): void {
@@ -78,12 +80,16 @@ export class GoalCardComponent implements OnChanges {
       if (this.parentGoals.length > 0 && this.goal.parentId) {
         this.goal.lastUpdate = new Date().toLocaleDateString('en-CA');
         this.addGoal.emit(this.goal);
-        this.goal = new Goal('', '', '', '', false, []);
+        this.goal = new Goal(undefined, '', '', '', '', '', false, []);
       } else {
         this.goal.lastUpdate = new Date().toLocaleDateString('en-CA');
         this.addGoal.emit(this.goal);
-        this.goal = new Goal('', '', '', '', false, []);
+        this.goal = new Goal(undefined, '', '', '', '', '', false, []);
       }
     }
   }
+
+  // handleFileUpload(): void {
+  //   console.log(this.fileInput?.nativeElement.files[0]);
+  // }
 }
