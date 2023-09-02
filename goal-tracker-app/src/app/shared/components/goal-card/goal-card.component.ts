@@ -1,10 +1,12 @@
 import {
   Component,
+  ElementRef,
   EventEmitter,
   Input,
   OnChanges,
   Output,
   SimpleChanges,
+  ViewChild,
 } from '@angular/core';
 import { Goal } from 'src/app/core/models/goal';
 import { faCheck, faArrowRight } from '@fortawesome/free-solid-svg-icons';
@@ -16,6 +18,7 @@ import { Task } from 'src/app/core/models/task';
   styleUrls: ['./goal-card.component.scss'],
 })
 export class GoalCardComponent implements OnChanges {
+  // @ViewChild('fileInput', { static: false }) fileInput?: ElementRef;
   @Input() goal: Goal = new Goal(undefined, '', '', '', '', '', false, []);
   @Input() editMode: Boolean = false;
   @Input() parentGoals: Array<Goal> = [];
@@ -85,4 +88,8 @@ export class GoalCardComponent implements OnChanges {
       }
     }
   }
+
+  // handleFileUpload(): void {
+  //   console.log(this.fileInput?.nativeElement.files[0]);
+  // }
 }
