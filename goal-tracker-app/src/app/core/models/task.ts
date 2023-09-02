@@ -1,16 +1,16 @@
 export class Task {
-  title: String;
-  parentId?: String;
-  description?: String;
-  isComplete: Boolean;
-  dateCompleted: String;
+  title: string;
+  parentId?: string;
+  description?: string;
+  isComplete: boolean;
+  dateCompleted: string;
 
   constructor(
-    title: String,
-    parentId: String,
-    description: String,
-    isComplete: Boolean,
-    dateCompleted: String
+    title: string,
+    parentId: string,
+    description: string,
+    isComplete: boolean,
+    dateCompleted: string
   ) {
     this.title = title;
     this.parentId = parentId;
@@ -19,4 +19,3 @@ export class Task {
     this.dateCompleted = dateCompleted;
   }
 }
-

@@ -7,7 +7,7 @@ import {
   deleteGoalById
 } from "../controllers/shortTermGoalsController";
 
-export default (routePrefix: String, router: express.Router) => {
+export default (routePrefix: string, router: express.Router) => {
   router.get(`${routePrefix}/all`, getAllGoals);
   router.get(`${routePrefix}/:id`, getGoalById);
   router.post(`${routePrefix}/create`, createGoal);

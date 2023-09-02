@@ -23,6 +23,14 @@
         Last Update: {{ lastUpdatedDate | date : "yyyy-MM-dd" }}
       </p>
     </div>
+    <div class="goal-card-picture-container">
+      <div *ngIf="editMode">
+        <input type="file" />
+      </div>
+      <div
+        *ngIf="!editMode"
+      ></div>
+    </div>
     <h4 *ngIf="!editMode && parentGoals.length > 0">
       Parent: {{ showParentGoalTitle() }}
     </h4>
