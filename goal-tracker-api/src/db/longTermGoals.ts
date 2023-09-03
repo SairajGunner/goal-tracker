@@ -3,7 +3,7 @@ import { Goal } from "../dataModels";
 
 const longTermGoalsSchema = new mongoose.Schema(
   {
-    priority: { type: Number, required: true },
+    priority: { type: Number, required: false },
     title: { type: String, required: true },
     parentId: { type: String, required: false },
     description: { type: String, required: false },
