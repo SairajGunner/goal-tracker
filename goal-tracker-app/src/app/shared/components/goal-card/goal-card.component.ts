@@ -60,13 +60,13 @@ export class GoalCardComponent implements OnChanges {
   addTask() {
     const task: Task = new Task(
       this.additionalTask,
-      this.goal.parentId,
+      this.goal._id ? this.goal._id : '',
       '',
       false,
       new Date().toLocaleDateString('en-CA')
     );
     this.goal.tasks.push(task);
-    this.updateGoal.emit(this.goal);
+    if (!this.editMode) this.updateGoal.emit(this.goal);
     this.additionalTask = '';
   }
 
