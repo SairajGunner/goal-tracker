@@ -1,18 +1,18 @@
 export class Task {
   title: string;
   parentId: string;
-  description: string;
+  description?: string;
   isComplete: boolean;
   dateCompleted: string;
 }
 
 export class Goal {
-  priority: number;
+  priority?: number;
   title: string;
   parentId: string;
-  description: string;
-  pictureSource: string;
+  description?: string;
+  pictureSource?: string;
   lastUpdate: string;
   isComplete: boolean;
-  tasks: Array<Task>;
+  tasks?: Array<Task>;
 }
