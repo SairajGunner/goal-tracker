@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { Goal } from "../dataModels";
+import { Goal, Task } from "../dataModels";
 
 const midTermGoalsSchema = new mongoose.Schema(
   {
@@ -47,7 +47,15 @@ export const getMidTermGoalById = async (id: String) => {
 
 export const createMidTermGoal = async (goal: Goal) => {
   try {
-    return await midTermGoalsModel.create(goal).then((goal) => goal.toObject());
+    let newGoal = await midTermGoalsModel
+      .create(goal)
+      .then((goal) => goal.toObject());
+    newGoal.tasks.forEach(
+      (task: Task) => (task.parentId = newGoal._id.toString())
+    );
+    if (newGoal.tasks.length > 0)
+      await midTermGoalsModel.findByIdAndUpdate(newGoal._id, newGoal);
+    return newGoal;
   } catch (error) {
     throw error;
   }
