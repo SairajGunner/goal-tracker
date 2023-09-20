@@ -1,0 +1,33 @@
+use trackedTasks
+
+db.createCollection("tasks", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            title: "Tracked Task Validation",
+            required: [ "year", "month", "weekStartDate", "title", "isComplete"],
+            properties: {
+            year: {
+               bsonType: "int",
+               description: "'year' must be a number and is required."
+            },
+            month: {
+               bsonType: "int",
+               description: "'month' must be a number and is required."
+            },
+            weekStartDate: {
+               bsonType: "int",
+               description: "'weekStartDate' must be a number and is required."
+            },
+            title: {
+               bsonType: "string",
+               description: "'title' must be a string and is required."
+            },
+            isComplete: {
+               bsonType: "bool",
+               description: "'isComplete' should be a boolean."
+            }
+         }
+        }
+    }
+})

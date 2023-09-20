@@ -5,7 +5,7 @@ import {
   createGoal,
   updateGoalById,
   deleteGoalById
-} from "../controllers/longTermGoalsController";
+} from "../../controllers/goals/longTermGoalsController";
 
 export default (routePrefix: string, router: express.Router) => {
   router.get(`${routePrefix}/all`, getAllGoals);

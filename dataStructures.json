@@ -33,6 +33,17 @@
         "isComplete": "boolean",
         "dateCompleted": "string"
       }
+    },
+    {
+      "trackedTask": {
+        "year": "number",
+        "month": "number",
+        "weekStartDate": "number",
+        "title": "string",
+        "description": "string",
+        "isComplete": "boolean",
+        "dateCompleted": "string"
+      }
     }
   ]
 }

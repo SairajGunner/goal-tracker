@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { Goal, Task } from "../dataModels";
+import { Goal, Task } from "../../dataModels";
 
 const shortTermGoalsSchema = new mongoose.Schema(
   {
@@ -24,7 +24,9 @@ const shortTermGoalsSchema = new mongoose.Schema(
   { collection: "shortTermGoals" }
 );
 
-export const shortTermGoalsModel = mongoose.model(
+const goalsDb = mongoose.connection.useDb("goals");
+
+export const shortTermGoalsModel = goalsDb.model(
   "ShortTermGoal",
   shortTermGoalsSchema
 );

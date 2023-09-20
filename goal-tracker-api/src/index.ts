@@ -21,7 +21,7 @@ server.listen(port, () => {
 const MONGO_DB_URL = dbSettings.mongo_db_url;
 
 mongoose.Promise = Promise;
-mongoose.connect(MONGO_DB_URL, { dbName: "goals" });
+mongoose.connect(MONGO_DB_URL, { dbName: "test" });
 mongoose.connection.on("error", () => {
   console.error(error);
 });
