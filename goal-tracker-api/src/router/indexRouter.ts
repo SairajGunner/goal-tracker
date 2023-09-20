@@ -1,8 +1,9 @@
 import * as express from "express";
 import versionRouter from "./versionRouter";
-import longTermGoalsRouter from "./longTermGoalsRouter";
-import midTermGoalsRouter from "./midTermGoalsRouter";
-import shortTermGoalsRouter from "./shortTermGoalsRouter";
+import longTermGoalsRouter from "./goals/longTermGoalsRouter";
+import midTermGoalsRouter from "./goals/midTermGoalsRouter";
+import shortTermGoalsRouter from "./goals/shortTermGoalsRouter";
+import trackedTasksRouter from "./tracked-tasks/trackedTasksRouter";
 
 const router = express.Router();
 router.use(express.json());
@@ -13,5 +14,6 @@ export default (): express.Router => {
   longTermGoalsRouter("/long-term-goals", router);
   midTermGoalsRouter("/mid-term-goals", router);
   shortTermGoalsRouter("/short-term-goals", router);
+  trackedTasksRouter("/tracked-tasks", router);
   return router;
 };

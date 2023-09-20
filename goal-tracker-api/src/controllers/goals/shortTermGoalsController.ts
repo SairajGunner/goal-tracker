@@ -5,7 +5,7 @@ import {
   createShortTermGoal,
   updateShortTermGoalById,
   deleteShortTermGoalById
-} from "../db/shortTermGoals";
+} from "../../db/goals/shortTermGoals";
 
 export const getAllGoals = async (
   req: express.Request,

@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
-import { Goal, Task } from "../dataModels";
+import { Goal, Task } from "../../dataModels";
 
-const shortTermGoalsSchema = new mongoose.Schema(
+const midTermGoalsSchema = new mongoose.Schema(
   {
     priority: { type: Number, required: false },
     title: { type: String, required: true },
@@ -21,59 +21,59 @@ const shortTermGoalsSchema = new mongoose.Schema(
       required: false
     }
   },
-  { collection: "shortTermGoals" }
+  { collection: "midTermGoals" }
 );
 
 const goalsDb = mongoose.connection.useDb("goals");
 
-export const shortTermGoalsModel = goalsDb.model(
-  "ShortTermGoal",
-  shortTermGoalsSchema
+export const midTermGoalsModel = goalsDb.model(
+  "MidTermGoal",
+  midTermGoalsSchema
 );
 
-export const getAllShortTermGoals = async () => {
+export const getAllMidTermGoals = async () => {
   try {
-    return await shortTermGoalsModel.find();
+    return await midTermGoalsModel.find();
   } catch (error) {
     throw error;
   }
 };
 
-export const getShortTermGoalById = async (id: String) => {
+export const getMidTermGoalById = async (id: String) => {
   try {
-    return await shortTermGoalsModel.findById(id);
+    return await midTermGoalsModel.findById(id);
   } catch (error) {
     throw error;
   }
 };
 
-export const createShortTermGoal = async (goal: Goal) => {
+export const createMidTermGoal = async (goal: Goal) => {
   try {
-    let newGoal = await shortTermGoalsModel
+    let newGoal = await midTermGoalsModel
       .create(goal)
       .then((goal) => goal.toObject());
-    newGoal.tasks?.forEach((task: Task) => {
-      task.parentId = newGoal._id.toString();
-    });
+    newGoal.tasks.forEach(
+      (task: Task) => (task.parentId = newGoal._id.toString())
+    );
     if (newGoal.tasks.length > 0)
-      await shortTermGoalsModel.findByIdAndUpdate(newGoal._id, newGoal);
+      await midTermGoalsModel.findByIdAndUpdate(newGoal._id, newGoal);
     return newGoal;
   } catch (error) {
     throw error;
   }
 };
 
-export const updateShortTermGoalById = async (id: String, goal: Goal) => {
+export const updateMidTermGoalById = async (id: String, goal: Goal) => {
   try {
-    return await shortTermGoalsModel.findByIdAndUpdate(id, goal);
+    return await midTermGoalsModel.findByIdAndUpdate(id, goal);
   } catch (error) {
     throw error;
   }
 };
 
-export const deleteShortTermGoalById = async (id: String) => {
+export const deleteMidTermGoalById = async (id: String) => {
   try {
-    return await shortTermGoalsModel.findByIdAndDelete(id);
+    return await midTermGoalsModel.findByIdAndDelete(id);
   } catch (error) {
     throw error;
   }

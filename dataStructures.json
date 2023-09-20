@@ -44,15 +44,6 @@
         "isComplete": "boolean",
         "dateCompleted": "string"
       }
-    },
-    {
-      "year": 2023,
-      "month": 9,
-      "weekStartDate": 24,
-      "title": "Test Task 2",
-      "description": null,
-      "isComplete": false,
-      "dateCompleted": null
     }
   ]
 }

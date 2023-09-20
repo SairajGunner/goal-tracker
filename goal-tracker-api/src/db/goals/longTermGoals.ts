@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { Goal, Task } from "../dataModels";
+import { Goal, Task } from "../../dataModels";
 
 const longTermGoalsSchema = new mongoose.Schema(
   {
