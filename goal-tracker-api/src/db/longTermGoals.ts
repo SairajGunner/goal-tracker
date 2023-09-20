@@ -24,7 +24,9 @@ const longTermGoalsSchema = new mongoose.Schema(
   { collection: "longTermGoals" }
 );
 
-export const longTermGoalsModel = mongoose.model(
+const goalsDb = mongoose.connection.useDb("goals");
+
+export const longTermGoalsModel = goalsDb.model(
   "LongTermGoal",
   longTermGoalsSchema
 );

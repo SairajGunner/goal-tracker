@@ -24,7 +24,9 @@ const shortTermGoalsSchema = new mongoose.Schema(
   { collection: "shortTermGoals" }
 );
 
-export const shortTermGoalsModel = mongoose.model(
+const goalsDb = mongoose.connection.useDb("goals");
+
+export const shortTermGoalsModel = goalsDb.model(
   "ShortTermGoal",
   shortTermGoalsSchema
 );

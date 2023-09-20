@@ -24,7 +24,9 @@ const midTermGoalsSchema = new mongoose.Schema(
   { collection: "midTermGoals" }
 );
 
-export const midTermGoalsModel = mongoose.model(
+const goalsDb = mongoose.connection.useDb("goals");
+
+export const midTermGoalsModel = goalsDb.model(
   "MidTermGoal",
   midTermGoalsSchema
 );

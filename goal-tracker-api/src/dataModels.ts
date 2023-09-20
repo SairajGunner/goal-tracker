@@ -16,3 +16,13 @@ export class Goal {
   isComplete: boolean;
   tasks?: Array<Task>;
 }
+
+export class TrackedTask {
+  year: number;
+  month: number;
+  weekStartDate: number;
+  title: string;
+  description?: string;
+  isComplete: boolean;
+  dateCompleted?: string;
+}
