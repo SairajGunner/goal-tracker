@@ -5,7 +5,7 @@ import {
   getAllSelectedWeeksTrackedTasks,
   getTrackedTaskById,
   updateTrackedTaskById
-} from "db/tracked-tasks/trackedTasks";
+} from "../../db/tracked-tasks/trackedTasks";
 
 export const getAllSelectedWeeksTasks = async (
   req: express.Request,
