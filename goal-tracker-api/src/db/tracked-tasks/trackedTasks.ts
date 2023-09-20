@@ -11,7 +11,7 @@ const trackedTaskSchema = new mongoose.Schema(
     isComplete: { type: Boolean, required: true },
     dateCompleted: { type: Date, required: false }
   },
-  { collection: "longTermGoals" }
+  { collection: "tasks" }
 );
 
 const trackedTasksDb = mongoose.connection.useDb("trackedTasks");
