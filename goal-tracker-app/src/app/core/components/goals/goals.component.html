@@ -1,0 +1,45 @@
+<main id="app-content-container">
+  <div id="short-term-goals" class="app-content-goals-container">
+    <h2 class="goals-container-title">Short Term Goals</h2>
+    <app-goal-card
+      *ngFor="let goal of shortTermGoals"
+      [parentGoals]="midTermGoals"
+      (updateGoal)="updateShortTermGoal($event)"
+      [goal]="goal"
+    ></app-goal-card>
+    <app-goal-card
+      class="goal-card-edit"
+      [parentGoals]="midTermGoals"
+      (addGoal)="addShortTermGoal($event)"
+      [editMode]="true"
+    ></app-goal-card>
+  </div>
+  <div id="mid-term-goals" class="app-content-goals-container">
+    <h2 class="goals-container-title">Mid Term Goals</h2>
+    <app-goal-card
+      *ngFor="let goal of midTermGoals"
+      [parentGoals]="longTermGoals"
+      (updateGoal)="updateMidTermGoal($event)"
+      [goal]="goal"
+    ></app-goal-card>
+    <app-goal-card
+      class="goal-card-edit"
+      [parentGoals]="longTermGoals"
+      (addGoal)="addMidTermGoal($event)"
+      [editMode]="true"
+    ></app-goal-card>
+  </div>
+  <div id="long-term-goals" class="app-content-goals-container">
+    <h2 class="goals-container-title">Long Term Goals</h2>
+    <app-goal-card
+      *ngFor="let goal of longTermGoals"
+      (updateGoal)="updateLongTermGoal($event)"
+      [goal]="goal"
+    ></app-goal-card>
+    <app-goal-card
+      class="goal-card-edit"
+      (addGoal)="addLongTermGoal($event)"
+      [editMode]="true"
+    ></app-goal-card>
+  </div>
+</main>

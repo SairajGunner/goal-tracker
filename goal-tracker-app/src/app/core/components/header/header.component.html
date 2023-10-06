@@ -1,4 +1,16 @@
 <div id="header-container">
-  <div class="header-navigation">GOALS</div>
-  <div class="header-navigation">WEEKLY TRACKER</div>
+  <a
+    class="header-navigation"
+    routerLink="/"
+    routerLinkActive="header-navigation-active"
+    [routerLinkActiveOptions]="{ exact: true }"
+    >GOALS</a
+  >
+  <a
+    class="header-navigation"
+    routerLink="/weekly-tracker"
+    routerLinkActive="header-navigation-active"
+    [routerLinkActiveOptions]="{ exact: true }"
+    >WEEKLY TRACKER</a
+  >
 </div>
