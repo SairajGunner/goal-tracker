@@ -10,5 +10,5 @@ STEPS TO CREATE A FREE MONGO DB DATABASE & SETUP APP
 2. REGISTER / SIGN IN
 3. CREATE A FREE CLUSTER ON ANY CLOUD PROVIDER
 4. GO TO 'CONNECT' MENU AND UNDER DRIVERS/NODE, YOU WILL FIND THE URL YOU NEED TO COPY
-5. CHANGE THE NAME OF dbSettings_temp.json to dbSettings.json and in the value of the field mongo_db_url, paste the URL
+5. CHANGE THE NAME OF dbSettings_temp.json to dbSettings.json and in the value of the field mongo_db_url, paste the URL (example URL: mongodb+srv://username:password@freecluster.ox2uddb.mongodb.net/?retryWrites=true&w=majority)
 6. YOU SHOULD BE GOOD TO GO
